@@ -1,4 +1,4 @@
-package rectangle;
+package geometric_objects;
 
 import java.util.Date;
 

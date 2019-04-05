@@ -23,7 +23,7 @@ import java.util.List;
  */
 public class StudentDAO {
 
-    private static final String STUDENT_FILE_NAME = "D:\\student.txt";
+    private static final String STUDENT_FILE_NAME = "./data/student.txt";
 
     /**
      * save list student to file

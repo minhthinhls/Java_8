@@ -5,11 +5,16 @@
  */
 package student_management;
 
+import JavaIOs.Book;
+import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  *
@@ -78,15 +83,18 @@ public class StudentHandler {
     }
 
     public void show() {
-        System.out.println(String.format("%-20s%-30s%-20s%-15s%-15s", "*ID:", "*NAME:", "*ADDRESS:", "*AGE:", "*GPA:"));
+        Field[] fields = Student.class.getDeclaredFields();
+        List<String> listField = Stream.of(fields).map(x -> "*" + x.getName().toUpperCase()).collect(Collectors.toList());
+        System.out.println(String.format("%-20s%-30s%-20s%-15s%-15s", listField.toArray()));
+
         if (!sorted_students.isEmpty()) {
-            for (Student student : sorted_students) {
-                String line = String.format("%-20s%-30s%-20s%-15s%-15s", student.getId(), student.getName(), student.getAddress(), student.getAge(), student.getGpa());
+            for (Object object : sorted_students) {
+                String line = String.format("%-20s%-30s%-20s%-15s%-15s", ((Student) object).getAllFields().toArray());
                 System.out.println(line);
             }
         } else {
-            for (Student student : students.values()) {
-                String line = String.format("%-20s%-30s%-20s%-15s%-15s", student.getId(), student.getName(), student.getAddress(), student.getAge(), student.getGpa());
+            for (Object object : students.values()) {
+                String line = String.format("%-20s%-30s%-20s%-15s%-15s", ((Student) object).getAllFields().toArray());
                 System.out.println(line);
             }
         }

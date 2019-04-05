@@ -6,6 +6,7 @@ public class NhanVien {
     private int soSanPham;
 
     public NhanVien() {
+        // Empty constructor
     }
 
     public NhanVien(String ma, int sp) {
@@ -38,10 +39,7 @@ public class NhanVien {
     }
 
     public boolean coVuotChuan() {
-        if (this.soSanPham > 500) {
-            return true;
-        }
-        return false;
+        return this.soSanPham > 500;
     }
 
     public String getTongKet() {
@@ -68,6 +66,7 @@ public class NhanVien {
         System.out.println("Mã nhân viên\tSố sản phẩm\tLương\tTổng kết");
     }
 
+    @Override
     public String toString() {
         String kq;
         xuatTieuDe();

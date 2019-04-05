@@ -17,7 +17,7 @@ public class StudentManager {
 
     public static Scanner scanner = new Scanner(System.in);
     private List<Student> studentList;
-    private StudentDAO studentDAO;
+    private final StudentDAO studentDAO;
 
     /**
      * initiate StudentDAO object and read list student when initiate

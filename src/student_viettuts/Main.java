@@ -16,7 +16,7 @@ public class Main {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        String choose = null;
+        String choose;
         boolean exit = false;
         StudentManager studentManager = new StudentManager();
         int studentId;

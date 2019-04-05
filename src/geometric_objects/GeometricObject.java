@@ -1,4 +1,4 @@
-package rectangle;
+package geometric_objects;
 
 import java.util.Date;
 
@@ -12,7 +12,6 @@ public class GeometricObject {
     }
 
     public GeometricObject(String color, boolean filled, Date dateCreated) {
-        //super();
         this.color = color;
         this.filled = filled;
         this.dateCreated = dateCreated;
@@ -38,6 +37,7 @@ public class GeometricObject {
         return dateCreated;
     }
 
+    @Override
     public String toString() {
         String result = null;
         return result;

@@ -32,10 +32,10 @@ public class Base64_Utility {
     private static String encodeFileToBase64Binary(File file) {
         String encodedfile = null;
         try {
-            // Read file through FileInputStream without Buffer
+            /* Read file through FileInputStream without Buffer! */
             // FileInputStream fileInputStreamReader = new FileInputStream(file);
-            
-            // Read file through FileInputStream with Buffer(Read many bytes at once), Increasing efficiency !
+
+            /* Read file through FileInputStream with Buffer(Read many bytes at once), Increasing efficiency! */
             InputStream fileInputStreamReader = new BufferedInputStream(new FileInputStream(file));
             byte[] bytes = new byte[(int) file.length()];   // Create variable bytes with data length = file length
             fileInputStreamReader.read(bytes);  // Write data from file to variable, byte[] bytes, through InputStream under binary data
@@ -56,17 +56,18 @@ public class Base64_Utility {
         BufferedImage img = ImageIO.read(new ByteArrayInputStream(imgBytes));
         ImageIO.write(img, "png", imgFile);
     }
+
     /*
     public static byte[] convertToImg(String base64) throws IOException {
         return Base64.decodeBase64(base64);
     }
-    */
+     */
     public static void decodeBase64BinaryToImage(String decodedString) {
         // Convert base64 string to binary data
         byte[] data = DatatypeConverter.parseBase64Binary(decodedString);   // Convert base64 String to binary data
-        String path = "D:/image.png";
+        String path = "D:/output-image.png";
         File file = new File(path);
-        
+
         // Write binary data to File
         try (OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(file))) {
             outputStream.write(data);   // Write data from variable, byte[] data, to file through OutputStream under binary data
@@ -77,12 +78,12 @@ public class Base64_Utility {
 
     public static void main(String[] args) {
         // TODO code application logic here
-        File encodedFile = new File("D:/banner-brand-swim.jpg");
+        File encodedFile = new File("D:/my-avatar.jpg");
         String encodedstring = encodeFileToBase64Binary(encodedFile);
         System.out.println(encodedstring);
         decodeBase64BinaryToImage(encodedstring);
         System.out.println("Decode successfully !");
-        System.out.println("D:/image.png");
+        System.out.println("D:/output-image.png");
     }
 
 }

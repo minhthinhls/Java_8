@@ -5,6 +5,9 @@
  */
 package student_management;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Minh Thinh
@@ -31,6 +34,16 @@ public class Student {
         this.address = address;
         this.age = age;
         this.gpa = gpa;
+    }
+
+    public List getAllFields() {
+        List<String> fields = new ArrayList<>();
+        fields.add(id);
+        fields.add(name);
+        fields.add(address);
+        fields.add(String.valueOf(age));
+        fields.add(String.valueOf(gpa));
+        return fields;
     }
 
     /**

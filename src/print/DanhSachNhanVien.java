@@ -7,7 +7,7 @@ public class DanhSachNhanVien {
     private ArrayList<NhanVien> nhanvienList;
 
     public DanhSachNhanVien() {
-        nhanvienList = new ArrayList<NhanVien>();
+        nhanvienList = new ArrayList<>();
     }
 
     public void addNhanVien(NhanVien nv) {
@@ -110,7 +110,7 @@ public class DanhSachNhanVien {
         int index = 0;
         for (int i = 0; i < nhanvienList.size(); i++) {
             NhanVien nv = nhanvienList.get(i);
-            if (nv.getMaNV() == maNV) {
+            if (nv.getMaNV().equals(maNV)) {
                 index = i;
             }
         }
@@ -132,7 +132,7 @@ public class DanhSachNhanVien {
     }
 
     public void sort() {
-        ArrayList<NhanVien> kq = new ArrayList<NhanVien>();
+        ArrayList<NhanVien> kq = new ArrayList<>();
         for (NhanVien nv : nhanvienList) {
             insertOrderedList(nv, kq);
         }

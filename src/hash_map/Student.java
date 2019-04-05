@@ -1,4 +1,4 @@
-package hashMap;
+package hash_map;
 
 public class Student {//implements Comparable<Student> {
 
@@ -36,6 +36,7 @@ public class Student {//implements Comparable<Student> {
         this.age = age;
     }
 
+    @Override
     public String toString() {
         return "Student(" + name + ", " + age + ")";
     }
